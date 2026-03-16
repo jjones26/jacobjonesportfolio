@@ -1,2 +1,78 @@
-# jacobjonesportfolio
-This is the code for my portfolio website
+# [JJ] — Personal Portfolio
+
+My personal portfolio site. Dark terminal aesthetic, minimal layout, built with plain HTML, CSS, and JavaScript — no frameworks, no build tools, no nonsense.
+
+Live at: **[your-netlify-url.netlify.app](https://your-netlify-url.netlify.app)**
+
+---
+
+## What's in here
+
+```
+my-site/
+├── index.html   # All the content and structure
+├── style.css    # Styling, layout, and the dark/green theme
+├── script.js    # Terminal typewriter, scroll animations, progress bar
+└── README.md    # You're reading it
+```
+
+---
+
+## Sections
+
+- **About** — A bit about me, my background, and my tech stack
+- **Projects** — Featured games with Itch.io embeds (Space Arena, The Daily Crostic, Rogue Ball)
+- **Devlog** — Occasional notes on what I'm building and learning
+- **Contact** — Form powered by Formspree + links to find me online
+- **Support** — Ko-fi link if you want to buy me a coffee
+
+---
+
+## Tech
+
+Just the basics:
+
+- HTML5, CSS3, Vanilla JS
+- [JetBrains Mono](https://fonts.google.com/specimen/JetBrains+Mono) + [Syne](https://fonts.google.com/specimen/Syne) via Google Fonts
+- [Devicon](https://devicon.dev/) for the skill icons
+- [Formspree](https://formspree.io/) for the contact form
+- Deployed manually via [Netlify Drop](https://app.netlify.com/drop)
+
+---
+
+## Running it locally
+
+No setup needed. Just open `index.html` in a browser — or use the Live Server extension in VS Code for auto-refresh while editing.
+
+---
+
+## Adding a devlog post
+
+Find the `.devlog-list` section in `index.html` and paste this block at the top of the list:
+
+```html
+<article class="devlog-entry">
+    <div class="devlog-meta">
+        <span class="devlog-date">Month Year</span>
+        <span class="devlog-tag">Update</span>
+    </div>
+    <h3 class="devlog-title">Your title here</h3>
+    <p class="devlog-body">What you want to say.</p>
+</article>
+```
+
+Tags can be whatever fits — `Release`, `Update`, `Devlog`, `Fix`, etc.
+
+---
+
+## Deploying
+
+1. Make your changes
+2. Go to [app.netlify.com](https://app.netlify.com) → your site → Deploys
+3. Drag the whole folder onto the drop zone
+4. Done
+
+---
+
+Built by Jake Jones — indie game dev, former teacher, Bills fan, dad.  
+Find my games at [jjones26.itch.io](https://jjones26.itch.io)
