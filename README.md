@@ -2,7 +2,7 @@
 
 My personal portfolio site. Dark terminal aesthetic, minimal layout, built with plain HTML, CSS, and JavaScript — no frameworks, no build tools, no nonsense.
 
-Live at: **[your-netlify-url.netlify.app](jacobjones.dev)**
+Live at: **[jacobjones.dev](jacobjones.dev)**
 
 ---
 
