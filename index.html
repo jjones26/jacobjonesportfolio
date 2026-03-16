@@ -4,141 +4,318 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jake Jones | Developer</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='10' fill='%23080a0c'/><rect x='2' y='2' width='60' height='60' rx='9' fill='none' stroke='%2300ff88' stroke-width='3'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='900' font-size='24' fill='%2300ff88'>JJ</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        
-        /* Floating Star Background */
-        body { 
-            font-family: 'Inter', sans-serif, -apple-system; 
-            background-color: #0b0d0f; 
-            color: #fff; 
-            line-height: 1.6;
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
-            background-size: 550px 550px, 350px 350px;
-            animation: move-stars 60s linear infinite;
-        }
-
-        @keyframes move-stars {
-            from { background-position: 0 0, 0 0; }
-            to { background-position: 1000px 1000px, 500px 500px; }
-        }
-
-        nav { position: fixed; top: 0; width: 100%; background: rgba(11, 13, 15, 0.9); padding: 1.2rem 0; z-index: 1000; border-bottom: 1px solid #1f2937; text-align: center; }
-        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-weight: 500; transition: color 0.3s; }
-        nav a:hover { color: #00ff88; }
-
-        .hero { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: radial-gradient(circle, rgba(0, 255, 136, 0.05) 0%, rgba(11, 13, 15, 1) 80%); }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        .hero h1 span { color: #00ff88; text-shadow: 0 0 15px rgba(0, 255, 136, 0.5); } 
-        .hero p { font-size: 1.5rem; color: #9ca3af; margin-bottom: 30px; }
-        
-        .btn-work { padding: 12px 30px; border: 2px solid #00ff88; color: #00ff88; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .btn-work:hover { background: #00ff88; color: #0b0d0f; }
-
-        section { padding: 100px 20px; max-width: 900px; margin: 0 auto; position: relative; z-index: 1; }
-        h2 { font-size: 2.5rem; border-bottom: 3px solid #00ff88; display: inline-block; margin-bottom: 30px; color: #00ff88; }
-        strong { color: #00ff88; }
-
-        /* Project Styling */
-        .project-container { display: flex; flex-direction: column; gap: 25px; align-items: center; margin-top: 20px; }
-        iframe { max-width: 100%; border-radius: 8px; border: 1px solid #333; }
-
-        /* Skill Logo Grid */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 30px; margin-top: 30px; justify-content: center; }
-        .skill-item { text-align: center; font-size: 0.9rem; color: #9ca3af; }
-        .skill-item i { display: block; font-size: 3rem; color: #fff; margin-bottom: 8px; transition: 0.3s; }
-        .skill-item:hover i { color: #00ff88; transform: scale(1.1); }
-
-        /* Contact & LinkedIn Styling */
-        .contact-wrapper { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: start; }
-        @media (min-width: 768px) { .contact-wrapper { grid-template-columns: 2fr 1fr; } }
-        
-        form { display: flex; flex-direction: column; gap: 15px; background: rgba(31, 41, 55, 0.5); padding: 30px; border-radius: 8px; backdrop-filter: blur(5px); }
-        input, textarea { padding: 12px; background: #111827; border: 1px solid #374151; color: white; border-radius: 4px; }
-        button { background: #00ff88; color: #0b0d0f; border: none; padding: 15px; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
-        button:hover { background: #00cc6e; transform: translateY(-2px); }
-
-        footer { padding: 50px 20px; text-align: center; background: rgba(0,0,0,0.3); margin-top: 50px; }
-        .social-links a { color: #9ca3af; margin: 0 15px; text-decoration: none; font-size: 1.2rem; }
-        .social-links a:hover { color: #00ff88; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-        <a href="#donate">Donate</a>
+    <!-- Page load progress bar -->
+    <div id="progress-bar"></div>
+
+    <!-- Scanline overlay -->
+    <div class="scanlines" aria-hidden="true"></div>
+    <!-- Grid background -->
+    <div class="grid-bg" aria-hidden="true"></div>
+
+    <!-- ═══ NAV ═══ -->
+    <nav id="nav">
+        <div class="nav-inner">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">[</span>JJ<span class="logo-bracket">]</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about"><span class="nav-num">01.</span>About</a></li>
+                <li><a href="#projects"><span class="nav-num">02.</span>Projects</a></li>
+                <li><a href="#devlog"><span class="nav-num">03.</span>Devlog</a></li>
+                <li><a href="#contact"><span class="nav-num">04.</span>Contact</a></li>
+                <li><a href="#donate" class="nav-cta">Support</a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+        <div class="nav-mobile" id="navMobile">
+            <a href="#about" class="mobile-link">01. About</a>
+            <a href="#projects" class="mobile-link">02. Projects</a>
+            <a href="#devlog" class="mobile-link">03. Devlog</a>
+            <a href="#contact" class="mobile-link">04. Contact</a>
+            <a href="#donate" class="mobile-link">Support</a>
+        </div>
     </nav>
 
+    <!-- ═══ HERO ═══ -->
     <section class="hero" id="home">
-        <h1>Hello, I'm <span>Jake.</span></h1>
-        <p>I'm an indie game developer and software developer.</p>
-        <a href="#projects" class="btn-work">View my work</a>
-    </section>
-
-    <section id="about">
-        <h2>About</h2>
-        <p>
-            I'm a developer driven by the challenge of bringing complex ideas to life through code. Whether I'm scripting game logic in <strong>Godot</strong> or <strong>Unity</strong> using GDScript and C#, or diving into the world of full-stack development, I’ve always considered myself a lifetime learner. As a former teacher, I enjoy educating others and bringing together a positive learning community. When I’m not at my desk, I’m wearing my most important title: <strong>Dad</strong>. I’m also a huge <strong>Buffalo Bills</strong> fan (Go Bills!), an avid golfer, and a fantasy football enthusiast. If I'm not coding or gaming, I'm likely trying to fix my swing on the course or managing my roster for the next big win.
-        </p>
-
-        <div class="skills-grid">
-            <div class="skill-item"><i class="devicon-godot-plain"></i>Godot</div>
-            <div class="skill-item"><i class="devicon-unity-plain"></i>Unity</div>
-            <div class="skill-item"><i class="devicon-csharp-plain"></i>C#</div>
-            <div class="skill-item"><i class="devicon-html5-plain"></i>HTML5</div>
-            <div class="skill-item"><i class="devicon-javascript-plain"></i>GDScript</div> 
+        <div class="hero-content">
+            <p class="hero-pre"><span class="cursor-blink">▋</span> hello_world.exe</p>
+            <h1 class="hero-name">Jake<br><span class="name-accent">Jones.</span></h1>
+            <p class="hero-tagline">Indie game dev &amp; software developer.<br>Building worlds, one commit at a time.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn-primary">View Projects</a>
+                <a href="#contact" class="btn-ghost">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-terminal" aria-hidden="true">
+            <div class="terminal-bar">
+                <span class="t-dot red"></span>
+                <span class="t-dot yellow"></span>
+                <span class="t-dot green"></span>
+                <span class="t-title">jake@dev:~</span>
+            </div>
+            <div class="terminal-body" id="terminalBody"></div>
         </div>
     </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <p>Latest builds from my Itch.io library:</p>
-        <div class="project-container">
-            <iframe frameborder="0" src="https://itch.io/embed/4240161?linkback=true&amp;bg_color=000000&amp;fg_color=ffffff&amp;link_color=5bfa7a" width="552" height="167"><a href="https://jjones26.itch.io/space-arena">Space Arena by GucciBinkey</a></iframe>
-            
-            <iframe frameborder="0" src="https://itch.io/embed/4270168?bg_color=222222&amp;fg_color=eeeeee&amp;border_color=363636" width="552" height="167"><a href="https://jjones26.itch.io/the-daily-crostic">The Daily Crostic by GucciBinkey</a></iframe>
-            
-            <iframe frameborder="0" src="https://itch.io/embed/3361493?dark=true" width="552" height="167"><a href="https://jjones26.itch.io/rogue-ball">Rogue Ball by GucciBinkey</a></iframe>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <div class="contact-wrapper">
-            <form action="https://formspree.io/f/xdagvbav" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-
-            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="dark" data-type="VERTICAL" data-vanity="jacob-spencer-jones" data-version="v1">
-                <a class="badge-base__link LI-simple-link" href="https://www.linkedin.com/in/jacob-spencer-jones?trk=profile-badge">Jacob Jones</a>
+    <!-- ═══ ABOUT ═══ -->
+    <section id="about" class="section">
+        <div class="section-inner">
+            <div class="section-label"><span>01.</span> About</div>
+            <h2 class="section-heading">Who I Am</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        I'm a developer driven by the challenge of bringing complex ideas to life through code. Whether I'm scripting game logic in <strong>Godot</strong> or <strong>Unity</strong> using GDScript and C#, or diving into full-stack development — I've always been a lifetime learner.
+                    </p>
+                    <p>
+                        As a former teacher, I enjoy educating others and building positive learning communities. When I'm not at my desk, I'm wearing my most important title: <strong>Dad</strong>. I'm also a huge <strong>Buffalo Bills</strong> fan (Go Bills!), an avid golfer, and a fantasy football enthusiast.
+                    </p>
+                    <p>
+                        If I'm not coding or gaming, I'm probably fixing my swing on the course or managing my roster for the next big win.
+                    </p>
+                </div>
+                <div class="skills-panel">
+                    <div class="skills-label">// tech stack</div>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="devicon-godot-plain"></i>
+                            <span>Godot</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-unity-plain"></i>
+                            <span>Unity</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-godot-plain colored"></i>
+                            <span>GDScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-csharp-plain"></i>
+                            <span>C#</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-html5-plain"></i>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-css3-plain"></i>
+                            <span>CSS</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="devicon-javascript-plain"></i>
+                            <span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="donate">
-        <h2>Donate</h2>
-        <a href="https://ko-fi.com/jacobjonesdev" target="_blank" class="btn-work" style="display:inline-block;">Support on Ko-fi</a>
+    <!-- ═══ PROJECTS ═══ -->
+    <section id="projects" class="section section-dark">
+        <div class="section-inner">
+            <div class="section-label"><span>02.</span> Projects</div>
+            <h2 class="section-heading">Featured Work</h2>
+            <p class="section-sub">Latest builds from my Itch.io library</p>
+
+            <!-- SPACE ARENA -->
+            <article class="project-feature" data-index="01">
+                <div class="project-meta">
+                    <span class="project-index">01</span>
+                    <span class="project-tag">Arcade · Godot</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-info">
+                        <h3 class="project-title">Space Arena</h3>
+                        <p class="project-desc">
+                            A fast-paced arcade shooter set in the void of space. Survive waves of enemies, upgrade your ship, and dominate the arena. Built in Godot with tight, responsive controls.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://jjones26.itch.io/space-arena" target="_blank" class="project-link-btn">Play on Itch.io ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-embed">
+                        <iframe frameborder="0" src="https://itch.io/embed/4240161?linkback=true&bg_color=0a0a0a&fg_color=ffffff&link_color=00ff88&border_color=1a1a1a" width="100%" height="167">
+                            <a href="https://jjones26.itch.io/space-arena">Space Arena by GucciBinkey</a>
+                        </iframe>
+                    </div>
+                </div>
+            </article>
+
+            <!-- THE DAILY CROSTIC -->
+            <article class="project-feature" data-index="02">
+                <div class="project-meta">
+                    <span class="project-index">02</span>
+                    <span class="project-tag">Puzzle · Browser</span>
+                </div>
+                <div class="project-body project-body--reverse">
+                    <div class="project-info">
+                        <h3 class="project-title">The Daily Crostic</h3>
+                        <p class="project-desc">
+                            A daily word puzzle game inspired by classic acrostics. A fresh challenge every day — perfect for word nerds who want something more than a crossword.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://jjones26.itch.io/the-daily-crostic" target="_blank" class="project-link-btn">Play on Itch.io ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-embed">
+                        <iframe frameborder="0" src="https://itch.io/embed/4270168?bg_color=0a0a0a&fg_color=ffffff&link_color=00ff88&border_color=1a1a1a" width="100%" height="167">
+                            <a href="https://jjones26.itch.io/the-daily-crostic">The Daily Crostic by GucciBinkey</a>
+                        </iframe>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ROGUE BALL -->
+            <article class="project-feature" data-index="03">
+                <div class="project-meta">
+                    <span class="project-index">03</span>
+                    <span class="project-tag">Roguelite · Unity</span>
+                </div>
+                <div class="project-body">
+                    <div class="project-info">
+                        <h3 class="project-title">Rogue Ball</h3>
+                        <p class="project-desc">
+                            A roguelite physics game where every run is different. Navigate unpredictable levels, collect power-ups, and see how far you can go. Built in Unity with procedural generation.
+                        </p>
+                        <div class="project-links">
+                            <a href="https://jjones26.itch.io/rogue-ball" target="_blank" class="project-link-btn">Play on Itch.io ↗</a>
+                        </div>
+                    </div>
+                    <div class="project-embed">
+                        <iframe frameborder="0" src="https://itch.io/embed/3361493?bg_color=0a0a0a&fg_color=ffffff&link_color=00ff88&border_color=1a1a1a" width="100%" height="167">
+                            <a href="https://jjones26.itch.io/rogue-ball">Rogue Ball by GucciBinkey</a>
+                        </iframe>
+                    </div>
+                </div>
+            </article>
+
+            <div class="projects-footer">
+                <a href="https://jjones26.itch.io/" target="_blank" class="btn-ghost">See all on Itch.io ↗</a>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com/jjones26" target="_blank">GitHub</a>
-            <a href="https://youtube.com/@urcasualgamedev" target="_blank">YouTube</a>
-            <a href="https://jjones26.itch.io/" target="_blank">Itch.io</a>
-            <a href="https://www.linkedin.com/in/jacob-spencer-jones" target="_blank">LinkedIn</a>
+    <!-- ═══ DEVLOG ═══ -->
+    <section id="devlog" class="section">
+        <div class="section-inner">
+            <div class="section-label"><span>03.</span> Devlog</div>
+            <h2 class="section-heading">Dev Notes</h2>
+            <p class="section-sub">Thoughts, updates, and behind-the-scenes from the build</p>
+
+            <div class="devlog-list">
+
+                <!-- ── ENTRY: copy this block to add a new post ── -->
+                <article class="devlog-entry">
+                    <div class="devlog-meta">
+                        <span class="devlog-date">Mar 2026</span>
+                        <span class="devlog-tag">Update</span>
+                    </div>
+                    <h3 class="devlog-title">Welcome to the Devlog</h3>
+                    <p class="devlog-body">
+                        This is where I'll be posting updates on what I'm building, lessons learned, and the occasional rant about a bug that took way too long to fix. Check back whenever — I'll keep it honest and low-key. First up: portfolio redesign shipping now. More game updates soon.
+                    </p>
+                </article>
+                <!-- ── END ENTRY ── -->
+
+                <!-- ── ENTRY: copy this block to add a new post ── -->
+                <article class="devlog-entry">
+                    <div class="devlog-meta">
+                        <span class="devlog-date">Feb 2026</span>
+                        <span class="devlog-tag">Release</span>
+                    </div>
+                    <h3 class="devlog-title">The Daily Crostic Goes Live</h3>
+                    <p class="devlog-body">
+                        Shipped The Daily Crostic — a daily word puzzle that refreshes every 24 hours. The hardest part wasn't the puzzle logic, it was making sure the daily seed stayed consistent across time zones. Learned a lot about date handling in GDScript. Give it a play and let me know what you think.
+                    </p>
+                </article>
+                <!-- ── END ENTRY ── -->
+
+            </div>
         </div>
-        <p style="margin-top: 20px; font-size: 0.8rem; color: #666;">&copy; 2026 Jake Jones</p>
+    </section>
+
+    <!-- ═══ CONTACT ═══ -->
+    <section id="contact" class="section section-dark">
+        <div class="section-inner">
+            <div class="section-label"><span>04.</span> Contact</div>
+            <h2 class="section-heading">Get In Touch</h2>
+            <p class="section-sub">Have a project in mind or just want to say hi?</p>
+            <div class="contact-grid">
+                <form class="contact-form" action="https://formspree.io/f/xdagvbav" method="POST">
+                    <div class="form-field">
+                        <label for="name">// your name</label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">// your email</label>
+                        <input type="email" id="email" name="email" placeholder="john@example.com" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">// message</label>
+                        <textarea id="message" name="message" rows="6" placeholder="What's on your mind?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full">Send Message</button>
+                </form>
+                <div class="contact-sidebar">
+                    <div class="contact-info-block">
+                        <p class="contact-info-label">// find me online</p>
+                        <ul class="contact-links">
+                            <li><a href="https://github.com/jjones26" target="_blank"><span class="link-arrow">→</span> GitHub</a></li>
+                            <li><a href="https://youtube.com/@urcasualgamedev" target="_blank"><span class="link-arrow">→</span> YouTube</a></li>
+                            <li><a href="https://jjones26.itch.io/" target="_blank"><span class="link-arrow">→</span> Itch.io</a></li>
+                            <li><a href="https://www.linkedin.com/in/jacob-spencer-jones" target="_blank"><span class="link-arrow">→</span> LinkedIn</a></li>
+                        </ul>
+                    </div>
+                    <div class="contact-info-block">
+                        <p class="contact-info-label">// support my work</p>
+                        <a href="https://ko-fi.com/jacobjonesdev" target="_blank" class="kofi-btn">
+                            <span>☕</span> Buy me a coffee
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══ DONATE ═══ -->
+    <section id="donate" class="section section-dark donate-section">
+        <div class="section-inner donate-inner">
+            <p class="donate-pre">// support indie dev</p>
+            <h2 class="donate-heading">Enjoying my work?</h2>
+            <p class="donate-sub">Every coffee keeps the games coming. Your support means the world.</p>
+            <a href="https://ko-fi.com/jacobjonesdev" target="_blank" class="btn-primary btn-lg">Support on Ko-fi ☕</a>
+        </div>
+    </section>
+
+    <!-- ═══ FOOTER ═══ -->
+    <footer>
+        <div class="footer-inner">
+            <a href="#home" class="footer-logo">
+                <span class="logo-bracket">[</span>JJ<span class="logo-bracket">]</span>
+            </a>
+            <div class="footer-links">
+                <a href="https://github.com/jjones26" target="_blank">GitHub</a>
+                <a href="https://youtube.com/@urcasualgamedev" target="_blank">YouTube</a>
+                <a href="https://jjones26.itch.io/" target="_blank">Itch.io</a>
+                <a href="https://www.linkedin.com/in/jacob-spencer-jones" target="_blank">LinkedIn</a>
+            </div>
+            <p class="footer-copy">&copy; 2026 Jake Jones. Built with ☕ &amp; code.</p>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
