@@ -1,7 +1,6 @@
 # [JJ] — Personal Portfolio
 
-My personal portfolio site. Dark terminal aesthetic, minimal layout, built with plain HTML, CSS, and JavaScript — no frameworks, no build tools, no nonsense.
-
+My personal portfolio site. Dark terminal aesthetic, minimal layout, built with plain HTML, CSS, and JavaScript.
 Live at: **[jacobjones.dev](jacobjones.dev)**
 
 ---
