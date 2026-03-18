@@ -21,6 +21,7 @@ my-site/
 
 - **About** — A bit about me, my background, and my tech stack
 - **Projects** — Featured games with Itch.io embeds (Space Arena, The Daily Crostic, Rogue Ball)
+- **Certs** — All of my official certs and some I am working on
 - **Devlog** — Occasional notes on what I'm building and learning
 - **Contact** — Form powered by Formspree + links to find me online
 - **Support** — Ko-fi link if you want to buy me a coffee
@@ -45,28 +46,18 @@ No setup needed. Just open `index.html` in a browser — or use the Live Server 
 
 ---
 
-## Adding a devlog post
+## Devlog post
 
-Find the `.devlog-list` section in `index.html` and paste this block at the top of the list:
-
-```html
-<article class="devlog-entry">
-    <div class="devlog-meta">
-        <span class="devlog-date">Month Year</span>
-        <span class="devlog-tag">Update</span>
-    </div>
-    <h3 class="devlog-title">Your title here</h3>
-    <p class="devlog-body">What you want to say.</p>
-</article>
-```
+Devlogs will be located in the devlog repo on my github. Feel free to check it out for updates on what I am doing and creating. 
 
 Tags can be whatever fits — `Release`, `Update`, `Devlog`, `Fix`, etc.
 
 ---
 
 ## Deploying
+If you would ilke to use this code as a template for your own website:
 
-1. Make your changes
+1. Make your changes to the html, CSS and JS files.
 2. Go to [app.netlify.com](https://app.netlify.com) → your site → Deploys
 3. Drag the whole folder onto the drop zone
 4. Done
