@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,10 +30,14 @@
             <ul class="nav-links">
                 <li><a href="#about"><span class="nav-num">01.</span>About</a></li>
                 <li><a href="#projects"><span class="nav-num">02.</span>Projects</a></li>
-                <li><a href="#devlog"><span class="nav-num">03.</span>Devlog</a></li>
-                <li><a href="#contact"><span class="nav-num">04.</span>Contact</a></li>
+                <li><a href="#certs"><span class="nav-num">03.</span>Certs</a></li>
+                <li><a href="#devlog"><span class="nav-num">04.</span>Devlog</a></li>
+                <li><a href="#contact"><span class="nav-num">05.</span>Contact</a></li>
                 <li><a href="#donate" class="nav-cta">Support</a></li>
             </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+                <span class="theme-icon">🌙</span>
+            </button>
             <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
@@ -41,21 +45,25 @@
         <div class="nav-mobile" id="navMobile">
             <a href="#about" class="mobile-link">01. About</a>
             <a href="#projects" class="mobile-link">02. Projects</a>
-            <a href="#devlog" class="mobile-link">03. Devlog</a>
-            <a href="#contact" class="mobile-link">04. Contact</a>
+            <a href="#certs" class="mobile-link">03. Certs</a>
+            <a href="#devlog" class="mobile-link">04. Devlog</a>
+            <a href="#contact" class="mobile-link">05. Contact</a>
             <a href="#donate" class="mobile-link">Support</a>
+            <button class="theme-toggle theme-toggle--mobile" id="themeToggleMobile" aria-label="Toggle light/dark mode">
+                <span class="theme-icon-mobile">🌙</span> Toggle Theme
+            </button>
         </div>
     </nav>
 
     <!-- ═══ HERO ═══ -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <p class="hero-pre"><span class="cursor-blink">▋</span> hello_world.exe</p>
+            <p class="hero-pre"><span class="cursor-blink">▋</span> open_to_work.exe</p>
             <h1 class="hero-name">Jake<br><span class="name-accent">Jones.</span></h1>
-            <p class="hero-tagline">Indie game dev &amp; software developer.<br>Building worlds, one commit at a time.</p>
+            <p class="hero-tagline">Game developer &amp; software developer.<br>Available for freelance &amp; full-time opportunities.</p>
             <div class="hero-actions">
-                <a href="#projects" class="btn-primary">View Projects</a>
-                <a href="#contact" class="btn-ghost">Get in Touch</a>
+                <a href="#contact" class="btn-primary">Hire Me</a>
+                <a href="#projects" class="btn-ghost">View My Work</a>
             </div>
         </div>
         <div class="hero-terminal" aria-hidden="true">
@@ -77,13 +85,13 @@
             <div class="about-grid">
                 <div class="about-text">
                     <p>
-                        I'm a developer driven by the challenge of bringing complex ideas to life through code. Whether I'm scripting game logic in <strong>Godot</strong> or <strong>Unity</strong> using GDScript and C#, or diving into full-stack development — I've always been a lifetime learner.
+                        I'm a developer actively looking for my next opportunity — whether that's <strong>freelance work</strong>, a <strong>full-time software dev role</strong>, or a <strong>game dev position</strong>. I bring a mix of front-end development, game scripting, and a genuine love for building things that work well and feel good to use.
                     </p>
                     <p>
-                        As a former teacher, I enjoy educating others and building positive learning communities. When I'm not at my desk, I'm wearing my most important title: <strong>Dad</strong>. I'm also a huge <strong>Buffalo Bills</strong> fan (Go Bills!), an avid golfer, and a fantasy football enthusiast.
+                        I build games in <strong>Godot</strong> and <strong>Unity</strong>, write <strong>C#</strong> and <strong>GDScript</strong>, and have been expanding into full-stack development through freeCodeCamp. As a former teacher, I bring strong communication, problem-solving, and a learner's mindset to everything I build.
                     </p>
                     <p>
-                        If I'm not coding or gaming, I'm probably fixing my swing on the course or managing my roster for the next big win.
+                        Off the screen I'm a proud <strong>Dad</strong>, a <strong>Buffalo Bills</strong> fan (Go Bills!), an avid golfer, and a fantasy football enthusiast. If you have an opportunity — big or small — I'd love to hear about it.
                     </p>
                 </div>
                 <div class="skills-panel">
@@ -208,41 +216,96 @@
         </div>
     </section>
 
+    <!-- ═══ CERTIFICATIONS ═══ -->
+    <section id="certs" class="section section-dark">
+        <div class="section-inner">
+            <div class="section-label"><span>03.</span> Certifications</div>
+            <h2 class="section-heading">Credentials</h2>
+            <p class="section-sub">Actively learning and stacking certifications — here's where I'm at</p>
+
+            <div class="certs-grid">
+
+                <!-- EARNED -->
+                <div class="cert-card">
+                    <div class="cert-issuer">freeCodeCamp</div>
+                    <h3 class="cert-title">Responsive Web Design</h3>
+                    <p class="cert-desc">HTML5, CSS3, Flexbox, CSS Grid, accessibility best practices, and responsive layout principles.</p>
+                    <div class="cert-footer">
+                        <span class="cert-date">2026</span>
+                        <a href="https://www.freecodecamp.org/certification/jjones26/responsive-web-design" target="_blank" class="cert-link">Verify ↗</a>
+                    </div>
+                </div>
+
+                <!-- IN PROGRESS -->
+                <div class="cert-card cert-card--upcoming">
+                    <div class="cert-issuer">freeCodeCamp</div>
+                    <h3 class="cert-title">JavaScript Algorithms &amp; Data Structures</h3>
+                    <p class="cert-desc">Variables, arrays, objects, loops, functions, OOP, and functional programming in JavaScript.</p>
+                    <div class="cert-footer">
+                        <span class="cert-badge">In Progress</span>
+                    </div>
+                </div>
+
+                <div class="cert-card cert-card--upcoming">
+                    <div class="cert-issuer">freeCodeCamp</div>
+                    <h3 class="cert-title">Front-End Development Libraries</h3>
+                    <p class="cert-desc">Bootstrap, jQuery, Sass, React, and Redux — building polished, component-driven interfaces.</p>
+                    <div class="cert-footer">
+                        <span class="cert-badge">In Progress</span>
+                    </div>
+                </div>
+
+                <div class="cert-card cert-card--upcoming">
+                    <div class="cert-issuer">freeCodeCamp</div>
+                    <h3 class="cert-title">Back-End Development &amp; APIs</h3>
+                    <p class="cert-desc">Node.js, Express, MongoDB, and building RESTful APIs from scratch.</p>
+                    <div class="cert-footer">
+                        <span class="cert-badge">In Progress</span>
+                    </div>
+                </div>
+
+                <div class="cert-card cert-card--upcoming">
+                    <div class="cert-issuer">freeCodeCamp</div>
+                    <h3 class="cert-title">Python</h3>
+                    <p class="cert-desc">Data structures, algorithms, and scripting with Python — expanding beyond game dev into broader development.</p>
+                    <div class="cert-footer">
+                        <span class="cert-badge">In Progress</span>
+                    </div>
+                </div>
+
+                <div class="cert-card cert-card--upcoming">
+                    <div class="cert-issuer">freeCodeCamp</div>
+                    <h3 class="cert-title">Relational Databases</h3>
+                    <p class="cert-desc">SQL, PostgreSQL, and relational database design — the backbone of most production applications.</p>
+                    <div class="cert-footer">
+                        <span class="cert-badge">In Progress</span>
+                    </div>
+                </div>
+
+                <div class="cert-card cert-card--upcoming">
+                    <div class="cert-issuer">freeCodeCamp &amp; Microsoft</div>
+                    <h3 class="cert-title">Foundational C# with Microsoft</h3>
+                    <p class="cert-desc">Core C# fundamentals — directly applicable to my Unity game dev work and broader .NET development.</p>
+                    <div class="cert-footer">
+                        <span class="cert-badge">In Progress</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!-- ═══ DEVLOG ═══ -->
     <section id="devlog" class="section">
         <div class="section-inner">
-            <div class="section-label"><span>03.</span> Devlog</div>
+            <div class="section-label"><span>04.</span> Devlog</div>
             <h2 class="section-heading">Dev Notes</h2>
-            <p class="section-sub">Thoughts, updates, and behind-the-scenes from the build</p>
-
-            <div class="devlog-list">
-
-                <!-- ── ENTRY: copy this block to add a new post ── -->
-                <article class="devlog-entry">
-                    <div class="devlog-meta">
-                        <span class="devlog-date">Mar 2026</span>
-                        <span class="devlog-tag">Update</span>
-                    </div>
-                    <h3 class="devlog-title">Welcome to the Devlog</h3>
-                    <p class="devlog-body">
-                        This is where I'll be posting updates on what I'm building, lessons learned, and the occasional rant about a bug that took way too long to fix. Check back whenever — I'll keep it honest and low-key. First up: portfolio redesign shipping now. More game updates soon.
-                    </p>
-                </article>
-                <!-- ── END ENTRY ── -->
-
-                <!-- ── ENTRY: copy this block to add a new post ── -->
-                <article class="devlog-entry">
-                    <div class="devlog-meta">
-                        <span class="devlog-date">Feb 2026</span>
-                        <span class="devlog-tag">Release</span>
-                    </div>
-                    <h3 class="devlog-title">The Daily Crostic Goes Live</h3>
-                    <p class="devlog-body">
-                        Shipped The Daily Crostic — a daily word puzzle that refreshes every 24 hours. The hardest part wasn't the puzzle logic, it was making sure the daily seed stayed consistent across time zones. Learned a lot about date handling in GDScript. Give it a play and let me know what you think.
-                    </p>
-                </article>
-                <!-- ── END ENTRY ── -->
-
+            <p class="section-sub">I write about what I'm building — games, learning, the occasional rabbit hole.</p>
+            <div class="devlog-callout">
+                <div class="devlog-callout-text">
+                    <p>Development updates, release notes, and lessons learned — posted on GitHub where it's easy to keep fresh without redeploying the whole site.</p>
+                </div>
+                <a href="https://github.com/jjones26/devlog" target="_blank" class="btn-primary">Read the Devlog on GitHub ↗</a>
             </div>
         </div>
     </section>
@@ -250,9 +313,9 @@
     <!-- ═══ CONTACT ═══ -->
     <section id="contact" class="section section-dark">
         <div class="section-inner">
-            <div class="section-label"><span>04.</span> Contact</div>
-            <h2 class="section-heading">Get In Touch</h2>
-            <p class="section-sub">Have a project in mind or just want to say hi?</p>
+            <div class="section-label"><span>05.</span> Contact</div>
+            <h2 class="section-heading">Let's Work Together</h2>
+            <p class="section-sub">Open to freelance projects, full-time roles, and game dev opportunities — reach out and let's talk.</p>
             <div class="contact-grid">
                 <form class="contact-form" action="https://formspree.io/f/xdagvbav" method="POST">
                     <div class="form-field">
@@ -265,7 +328,7 @@
                     </div>
                     <div class="form-field">
                         <label for="message">// message</label>
-                        <textarea id="message" name="message" rows="6" placeholder="What's on your mind?" required></textarea>
+                        <textarea id="message" name="message" rows="6" placeholder="Tell me about the opportunity or project..." required></textarea>
                     </div>
                     <button type="submit" class="btn-primary btn-full">Send Message</button>
                 </form>
