@@ -21,7 +21,38 @@ window.addEventListener('load', () => {
     setTimeout(() => { progressBar.style.display = 'none'; }, 900);
 });
 
-// ── Nav: scroll shadow ──────────────────────
+// ── Theme toggle ────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
+const themeToggleMobile = document.getElementById('themeToggleMobile');
+const root = document.documentElement;
+
+// Light is default. Only switch to dark if user previously chose it.
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    root.classList.remove('light');
+    updateToggleIcon(false);
+} else {
+    root.classList.add('light');
+    updateToggleIcon(true);
+}
+
+function updateToggleIcon(isLight) {
+    // In light mode show moon (click to go dark), in dark mode show sun (click to go light)
+    const icon = isLight ? '🌙' : '☀️';
+    if (themeToggle) themeToggle.querySelector('.theme-icon').textContent = icon;
+    if (themeToggleMobile) themeToggleMobile.querySelector('.theme-icon-mobile').textContent = icon;
+}
+
+function toggleTheme() {
+    const isNowLight = root.classList.toggle('light');
+    localStorage.setItem('theme', isNowLight ? 'light' : 'dark');
+    updateToggleIcon(isNowLight);
+}
+
+themeToggle?.addEventListener('click', toggleTheme);
+themeToggleMobile?.addEventListener('click', toggleTheme);
+
+
 const nav = document.getElementById('nav');
 
 window.addEventListener('scroll', () => {
@@ -54,9 +85,9 @@ const lines = [
     { type: 'prompt', text: 'whoami' },
     { type: 'output', text: 'jake_jones — dev, dad, Bills fan' },
     { type: 'prompt', text: 'ls ./skills' },
-    { type: 'output', text: 'godot/  unity/  csharp/  html5/  gdscript/' },
+    { type: 'output', text: 'godot/  unity/  csharp/  html5/  js/  css/' },
     { type: 'prompt', text: 'cat ./status.txt' },
-    { type: 'success', text: '✓ Open to new projects & collaborations' },
+    { type: 'success', text: '✓ Open to freelance & full-time opportunities' },
     { type: 'prompt', text: 'ls ./games' },
     { type: 'output', text: 'space-arena  daily-crostic  rogue-ball' },
     { type: 'prompt', text: '_', blink: true },
@@ -146,21 +177,21 @@ const revealObserver = new IntersectionObserver((entries) => {
 
 projectCards.forEach(card => revealObserver.observe(card));
 
-// ── Scroll reveal for devlog entries ────────
-const devlogEntries = document.querySelectorAll('.devlog-entry');
+// ── Scroll reveal for cert cards ─────────────
+const certCards = document.querySelectorAll('.cert-card');
 
-const devlogObserver = new IntersectionObserver((entries) => {
+const certObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
             setTimeout(() => {
                 entry.target.classList.add('visible');
-            }, i * 100);
-            devlogObserver.unobserve(entry.target);
+            }, i * 120);
+            certObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.1 });
 
-devlogEntries.forEach(e => devlogObserver.observe(e));
+certCards.forEach(c => certObserver.observe(c));
 
 // ── Smooth active nav highlighting ──────────
 const sections = document.querySelectorAll('section[id], footer');
